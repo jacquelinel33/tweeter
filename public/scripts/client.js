@@ -18,7 +18,7 @@ $(document).ready(function() {
     ${object.content.text}
     </div>
     <footer class="tweet-foot">
-      <p>${object.created_at}</p>
+      <p>${new Date(object.created_at).toLocaleString()}</p>
       <div class="icons">
         <img src="https://raw.githubusercontent.com/mpizzaca/tweeter/master/public/images/flag.png">
         <img src="https://raw.githubusercontent.com/mpizzaca/tweeter/master/public/images/retweet.png">
@@ -50,13 +50,26 @@ $(document).ready(function() {
           data: tweet
         })
         loadTweets(renderTweets);
+        $('textarea').val('');
+        $('.counter').val('140');
       }
       else {
-        $(".error-length").css({'visibility': 'visible'});
+        $('.error-length').css({ 'display': 'block' });
+        $('textarea').val('');
+        $('.counter').val('140');
+        $('.counter').removeClass("red");
+        $('form').on('click', function() {
+          $(".error-length").css({ 'display': 'none' });
+        });
       }
     }
     else {
-      $(".error-empty").css({'visibility': 'visible'});
+      $(".error-empty").css({ 'display': 'block' });
+      // $('.counter').val('140');
+      // $('.counter').removeClass("red");
+      $('form').on('click', function() {
+        $(".error-empty").css({ 'display': 'none' });
+      });
     }
   });
 

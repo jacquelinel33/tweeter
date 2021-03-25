@@ -41,15 +41,17 @@ section.new-tweet {
 }
 
 .error-length {
+  display: none;
   color: red;
   border: solid red;
-  visibility: hidden;
   padding: 10px;
+  top: 0px;
 }
 
 .error-empty {
+    display: none; 
     color: red;
     border: solid red;
-    visibility: hidden;
     padding: 10px;
+    top: 0px;
 }
