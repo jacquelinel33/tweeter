@@ -57,6 +57,7 @@ $(document).ready(function() {
     }
     else {
       $(".error-empty").css({'visibility': 'visible'});
+    }
   });
 
   //use ajax to get data from server
