@@ -1,5 +1,5 @@
  $(document).ready(function() {
-  //create tweet elements and append to article. Return article.
+
   const createTweetElement = (object) => {
     const tweet = `
     <article class="tweet-article">
@@ -34,7 +34,7 @@
     }
   };
 
-  //use ajax to get data from server
+  
   const loadTweets = (callback) => {
     $.ajax({
       url: "http://localhost:8080/tweets",
@@ -45,7 +45,7 @@
 
   loadTweets(renderTweets);
   
-  //post request that sends form data to server
+  //post request to send form data to server
   $('form').on('submit', function(event) {
     event.preventDefault();
     const tweetInput = $('textarea').val();

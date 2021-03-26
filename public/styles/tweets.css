@@ -9,7 +9,7 @@
   font-weight: bold;
 }
 
-.tweet-article header{
+.tweet-article header {
   display: flex;
   align-items: center;
 }
@@ -24,54 +24,53 @@
 
 #disappear {
   margin-left: auto;
-  color: transparent; 
+  color: transparent;
 }
 
 .tweet-body {
-width: 100%;
-border-bottom: black solid;
-margin:auto;
-padding: 2%;
-overflow-wrap: anywhere;
+  width: 100%;
+  border-bottom: black solid;
+  margin: auto;
+  padding: 2%;
+  overflow-wrap: anywhere;
 }
 
 .tweet-foot {
-display: flex;
-justify-content: space-between;
-padding: 0% 7%;
-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0% 7%;
+  width: 100%;
 
 }
 
 .icons img {
- padding:5% 4%;
- width:20px;
- margin: 40% 0%;
+  padding: 5% 4%;
+  width: 20px;
+  margin: 40% 0%;
 }
+
 .tweet-container {
-  display:flex;
+  display: flex;
   flex-direction: column-reverse;
 }
- /* Tablet: minimum width of 768px to maximum width of 1024px */
- @media only screen and (min-width: 0px) and (max-width: 1023px) {
-  /* Write Tablet only CSS here */
-  
+
+@media only screen and (min-width: 0px) and (max-width: 1023px) {
+
   body {
-  display: block;
+    display: block;
+  }
+
 }
+
+
+@media only screen and (min-width: 1024px) {
   
-}
-
- /* Laptops / Desktops: minimum width of 1024px */
- @media only screen and (min-width: 1024px) {
-  /* Write CSS rules that target Laptop/Desktop screen sizes and beyond */
-
   .container {
     display: flex;
     flex-direction: column;
     margin: 5em 2em 2em 2em;
 
-  }  
+  }
 
   #main-head {
     margin: 8em 2em 2em 2em;
