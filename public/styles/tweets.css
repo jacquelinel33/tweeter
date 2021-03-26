@@ -39,7 +39,8 @@ overflow-wrap: anywhere;
 display: flex;
 justify-content: space-between;
 padding: 0% 7%;
-width: 100%
+width: 100%;
+
 }
 
 .icons img {
@@ -50,4 +51,30 @@ width: 100%
 .tweet-container {
   display:flex;
   flex-direction: column-reverse;
+}
+ /* Tablet: minimum width of 768px to maximum width of 1024px */
+ @media only screen and (min-width: 0px) and (max-width: 1023px) {
+  /* Write Tablet only CSS here */
+  
+  body {
+  display: block;
+}
+  
+}
+
+ /* Laptops / Desktops: minimum width of 1024px */
+ @media only screen and (min-width: 1024px) {
+  /* Write CSS rules that target Laptop/Desktop screen sizes and beyond */
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    margin: 5em 2em 2em 2em;
+
+  }  
+
+  #main-head {
+    margin: 8em 2em 2em 2em;
+  }
+
 }
