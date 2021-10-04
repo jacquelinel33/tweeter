@@ -12,7 +12,7 @@ $(document).ready(function() {
           method: "POST",
           data: tweet
         }).then(() => loadTweets(renderTweets));
-
+        
         $('textarea').val('');
         $('.counter').val('140');
       } else {
