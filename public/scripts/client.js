@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  loadTweets(renderTweets);
+  loadTweets();
 
   $('form').on('submit', function(event) {
     event.preventDefault();
@@ -7,11 +7,12 @@ $(document).ready(function() {
     if (tweetInput) {
       if (tweetInput.length < 140) {
         let tweet = $(this).serialize();
+        console.log(tweet);
         $.ajax({
-          url: "/tweets/",
+          url: "/tweets",
           method: "POST",
           data: tweet
-        }).then(() => loadTweets(renderTweets));
+        }).then(() => loadTweets());
         
         $('textarea').val('');
         $('.counter').val('140');
@@ -41,6 +42,11 @@ $(document).ready(function() {
   });
 });
 
+const escape = function(str) {
+  let p = document.createElement("p");
+  p.appendChild(document.createTextNode(str));
+  return p.innerHTML
+}
 const createTweetElement = (object) => {
   const tweet = `
   <article class="tweet-article">
@@ -50,7 +56,7 @@ const createTweetElement = (object) => {
       <span id="disappear">${object.user.handle}</span>
     </header>
     <div class="tweet-body"> 
-      ${object.content.text}
+      ${escape(object.content.text)}
     </div>
       <footer class="tweet-foot">
       <p>${new Date(object.created_at).toLocaleString()}</p>
@@ -66,16 +72,16 @@ const createTweetElement = (object) => {
 };
 
 const renderTweets = (tweetObjArr) => {
+  let tweetsContainer = $('.tweet-container');
   for (let tweet of tweetObjArr) {
-    const generatedTweets = createTweetElement(tweet);
-    $('.tweet-container').append(generatedTweets);
+    let generatedTweets = createTweetElement(tweet);
+    tweetsContainer.append(generatedTweets);
   }
 };
 
-const loadTweets = (callback) => {
-  $.ajax({
-    url: "http://localhost:8080/tweets",
-    method: "GET",
-  })
-    .then(res => callback(res));
+const loadTweets = () => {
+  $.ajax('/tweets', { method: 'GET', dataType: "json" })
+    .then((res) => {
+      renderTweets(res);
+    });
 };
