@@ -17,9 +17,7 @@ $(document).ready(function() {
         $('textarea').val('');
         $('.counter').val('140');
       } else {
-        $('.error-length').css({
-          'display': 'block'
-        });
+        $('.error-length').slideDown("slow", function(){})
         $('textarea').val('');
         $('.counter').val('140');
         $('.counter').removeClass("red");
@@ -30,9 +28,10 @@ $(document).ready(function() {
         });
       }
     } else {
-      $(".error-empty").css({
-        'display': 'block'
-      });
+      $('.error-empty').slideDown("slow", function(){})
+      // $(".error-empty").css({
+      //   'display': 'block'
+      // });
       $('form').on('click', function() {
         $(".error-empty").css({
           'display': 'none'
